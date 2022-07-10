@@ -1,10 +1,22 @@
 import React, { useRef } from 'react'
+import { useDispatch } from "react-redux"
+import { addTodo } from "../actions/todos"
+
+import { v4 as uuidv4 } from 'uuid';
 
 const TodosForm = () => {
     const inputRef = useRef(null)
+    const formRef = useRef(null)
+    const dispatch = useDispatch()
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(inputRef.current.value)
+        dispatch(addTodo({
+            id: uuidv4(),
+            text: inputRef.current.value,
+            isDone: false
+        }))
+        formRef.current.reset()
     }
 
     return (
@@ -12,6 +24,7 @@ const TodosForm = () => {
             <form
                 className="mb-3 d-flex justify-content-between align-item-center"
                 onSubmit={handleSubmit}
+                ref={formRef}
             >
                 <div>
                     <input

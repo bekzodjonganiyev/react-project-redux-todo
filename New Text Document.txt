@@ -5,4 +5,9 @@ createStore ga 3 ta parametr bersa bo`ladi,
 
 Reducer 2 ta parametr oladi = funksiya bo`ladi bizani state ni  polni shu yerda o`zgartiramiz
 1. hozirgi holatdagi state 
-2. action ni oladi = type qaytaradigan funksiya
+2. action ni oladi = type va payload  qaytaradigan funksiya
+
+
+useRef ning metodlaridan bittasi:
+ref.reset
+bu metod formani submit qilgandan keyin inpularni tozalab beradi. U form tegida atrubut bo`ladi 
