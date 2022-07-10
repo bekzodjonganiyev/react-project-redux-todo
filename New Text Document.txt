@@ -1,0 +1,8 @@
+createStore ga 3 ta parametr bersa bo`ladi, 
+1. reducer berish kerak 
+2. boshlang`ich state berish kerak 
+3. qanaqadur qo`shimcha funksiya berish kerak 
+
+Reducer 2 ta parametr oladi = funksiya bo`ladi bizani state ni  polni shu yerda o`zgartiramiz
+1. hozirgi holatdagi state 
+2. action ni oladi = type qaytaradigan funksiya
