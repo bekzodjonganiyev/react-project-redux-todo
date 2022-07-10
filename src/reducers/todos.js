@@ -17,9 +17,7 @@ export const todos = (state = initialState, action) => {
                         isDone: action.payload.isDone
                     }
                 } else {
-                    return {
-                        item
-                    }
+                    return item
                 }
             })
         default:

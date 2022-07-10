@@ -12,7 +12,7 @@ const TodoItems = () => {
             {
                 todos.length > 0
                     ? todos.map((item) =>
-                        <TodoItem key={item.id} text={item.text} id={item.id} />
+                        <TodoItem key={item.id} text={item.text} id={item.id} isDone={item.isDone} />
                     )
                     : <h3 className='text-center my-3 text-secondary'>Todos not created yet</h3>
             }

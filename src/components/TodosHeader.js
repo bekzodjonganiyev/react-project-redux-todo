@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TodosHeader = () => {
+const TodosHeader = ({length}) => {
     return (
         <div className="card-header">
-            <h1>Todos: 0</h1>
+            <h1>Todos: {length}</h1>
         </div>
     )
 }

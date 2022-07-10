@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { removeTodo, completedTodo } from '../actions/todos'
 
 
-const TodoItem = ({ text, id }) => {
+const TodoItem = ({ text, id, isDone }) => {
     const dispatch = useDispatch()
 
     const handleMark = (e) => {
@@ -24,7 +24,9 @@ const TodoItem = ({ text, id }) => {
                     id="flexCheckDefault"
                     onChange={handleMark}
                 />
-                <label className="form-check-label" htmlFor="flexCheckDefault">{text}</label>
+                <label
+                    className={`form-check-label ${isDone ? "text-decoration-line-through" : ""}`}
+                    htmlFor="flexCheckDefault">{text}</label>
             </div>
 
             <button
