@@ -1,32 +1,73 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { useDispatch } from "react-redux"
-import { removeTodo, completedTodo } from '../actions/todos'
+import { removeTodo, completedTodo, editTodo } from '../actions/todos'
+import EditBtn from "../assets/edit.png"
 
-
-const TodoItem = ({ text, id, isDone }) => {
+const TodoItem = ({ textProps, id, isDone }) => {
     const dispatch = useDispatch()
 
+    const [edit, setEdit] = useState(false)
+    const [text, setText] = useState(textProps)
+
+    const editText = useRef()
+
     const handleMark = (e) => {
-        dispatch(completedTodo({
+        const toLocalStorage = {
             id,
             text,
             isDone: e.target.checked
-        }))
+        }
+        dispatch(completedTodo(toLocalStorage))
+    }
+
+    const handleEdit = () => {
+
+        const data = {
+            id,
+            text,
+            isDone
+        }
+
+        dispatch(editTodo(data))
     }
 
     return (
         <li className="list-group-item d-flex justify-content-between align-item-center">
             <div>
                 <input
-                    className="form-check-input me-2"
+                    className={`rounded-checkbox me-2 ${edit ? "none" : ""}`}
                     type="checkbox"
                     value=""
-                    id="flexCheckDefault"
                     onChange={handleMark}
                 />
                 <label
-                    className={`form-check-label ${isDone ? "text-decoration-line-through" : ""}`}
-                    htmlFor="flexCheckDefault">{text}</label>
+                    style={{fontSize:"18px"}}
+                    onDoubleClick={() => setEdit(true)}
+                    className={`form-check-label ${isDone ? "text-decoration-line-through" : ""} ${edit ? "none" : ""}`}
+                >{text} </label>
+
+                {/* Edit function here */}
+                <div className='d-flex'>
+                    <input
+                        type="text"
+                        className={`${edit ? "block" : "none"}`}
+                        value={text}
+                        ref={editText}
+                        onChange={(e) => setText(e.target.value)}
+                        onTouchEnd={() => console.log(text)}
+                    />
+                    <button
+                        className={`btn ${edit ? "block" : "none"}`}
+                        onClick={() => {
+                            setText(editText.current.value)
+                            handleEdit()
+                            setEdit(false)
+                        }}
+                    >
+                        <img src={EditBtn} alt="edit" width="20" height="auto" />
+                    </button>
+                </div>
+
             </div>
 
             <button

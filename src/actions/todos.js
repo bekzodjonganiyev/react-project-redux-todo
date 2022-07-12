@@ -26,3 +26,12 @@ export const completedTodo = (todoItem) => {
         }
     }
 }
+
+export const editTodo = (todoItem) => {
+    return {
+        type:TODO.EDIT_TODO,
+        payload:{
+            ...todoItem
+        }
+    }
+}

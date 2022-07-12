@@ -11,3 +11,12 @@ Reducer 2 ta parametr oladi = funksiya bo`ladi bizani state ni  polni shu yerda 
 useRef ning metodlaridan bittasi:
 ref.reset
 bu metod formani submit qilgandan keyin inpularni tozalab beradi. U form tegida atrubut bo`ladi 
+
+keyin qilaman in shaa Alloh:
+lokalizatsiya,
+aktiv va done btn lar qo`shish ,
+loclastogarni implementatsiya qilish ,
+label ni id si bilan bug bor ekan shuni hal qilaman,
+edit qilish funksiyasini qoshaman 
+
+

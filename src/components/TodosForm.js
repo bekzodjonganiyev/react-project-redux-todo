@@ -9,12 +9,17 @@ const TodosForm = () => {
     const formRef = useRef(null)
     const dispatch = useDispatch()
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(addTodo({
+        const item = {
             id: uuidv4(),
             text: inputRef.current.value,
             isDone: false
+        }
+        localStorage.setItem("todos", JSON.stringify(item))
+        dispatch(addTodo({
+            ...item
         }))
         formRef.current.reset()
     }

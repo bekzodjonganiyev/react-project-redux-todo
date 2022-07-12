@@ -5,6 +5,8 @@ import TodosForm from "./components/TodosForm";
 import TodoItems from "./components/TodoItems";
 import TodosFooter from "./components/TodosFooter";
 
+import "./app.css"
+
 function App() {
   const items = useSelector(state => state.todos)
 
