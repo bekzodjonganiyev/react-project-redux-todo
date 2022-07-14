@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { useDispatch } from "react-redux"
 import { removeTodo, completedTodo, editTodo } from '../actions/todos'
-import EditBtn from "../assets/edit.png"
+import EditBtn from "../assets/images/edit.png"
 
 const TodoItem = ({ textProps, id, isDone }) => {
     const dispatch = useDispatch()
@@ -41,16 +41,22 @@ const TodoItem = ({ textProps, id, isDone }) => {
                     onChange={handleMark}
                 />
                 <label
-                    style={{fontSize:"18px"}}
-                    onDoubleClick={() => setEdit(true)}
                     className={`form-check-label ${isDone ? "text-decoration-line-through" : ""} ${edit ? "none" : ""}`}
-                >{text} </label>
+                    style={{ fontSize: "18px" }}
+                    onDoubleClick={
+                        () => {
+                            setEdit(true)
+                        }
+                    }
+                >
+                    {text}
+                </label>
 
                 {/* Edit function here */}
                 <div className='d-flex'>
                     <input
-                        type="text"
                         className={`${edit ? "block" : "none"}`}
+                        type="text"
                         value={text}
                         ref={editText}
                         onChange={(e) => setText(e.target.value)}
