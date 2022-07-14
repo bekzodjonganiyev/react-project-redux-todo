@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux"
 import { removeTodo, completedTodo, editTodo } from '../actions/todos'
 import EditBtn from "../assets/images/edit.png"
 import { DeleteIcon } from '../assets/icons/Icons'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const TodoItem = ({ textProps, id, isDone }) => {
     const dispatch = useDispatch()
@@ -33,15 +35,17 @@ const TodoItem = ({ textProps, id, isDone }) => {
         dispatch(editTodo(data))
     }
 
+    const notify = () => toast.error("On editing delete function is disable");
+
     return (
-        <li 
-        className="height list-group-item d-flex justify-content-between align-item-center"
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
+        <li
+            className="height list-group-item d-flex justify-content-between align-item-center"
+            onMouseEnter={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
         >
-            <div 
+            <div
             >
-                
+
                 <input
                     className={`align-middle rounded-checkbox me-2 ${edit ? "none" : ""}`}
                     type="checkbox"
@@ -54,6 +58,7 @@ const TodoItem = ({ textProps, id, isDone }) => {
                     onDoubleClick={
                         () => {
                             setEdit(true)
+                            setShow(false)
                         }
                     }
                 >
@@ -80,13 +85,24 @@ const TodoItem = ({ textProps, id, isDone }) => {
                     >
                         <img src={EditBtn} alt="edit" width="20" height="auto" />
                     </button>
+            <ToastContainer/>
+
                 </div>
 
             </div>
 
             <button
                 className={`align-middle btn text-danger ${show ? "show" : "hide"}`}
-                onClick={() => dispatch(removeTodo(id))}
+                onClick={() => {
+                    if (edit) {
+                        notify()
+                    }
+                    else {
+
+                        dispatch(removeTodo(id))
+                    }
+                }
+                }
             ><DeleteIcon width="20" height="20" /></button>
         </li>
     )
