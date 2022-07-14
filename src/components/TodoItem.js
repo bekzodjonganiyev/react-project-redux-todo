@@ -2,12 +2,14 @@ import React, { useState, useRef } from 'react'
 import { useDispatch } from "react-redux"
 import { removeTodo, completedTodo, editTodo } from '../actions/todos'
 import EditBtn from "../assets/images/edit.png"
+import { DeleteIcon } from '../assets/icons/Icons'
 
 const TodoItem = ({ textProps, id, isDone }) => {
     const dispatch = useDispatch()
 
     const [edit, setEdit] = useState(false)
     const [text, setText] = useState(textProps)
+    const [show, setShow] = useState(false)
 
     const editText = useRef()
 
@@ -32,16 +34,22 @@ const TodoItem = ({ textProps, id, isDone }) => {
     }
 
     return (
-        <li className="list-group-item d-flex justify-content-between align-item-center">
-            <div>
+        <li 
+        className="height list-group-item d-flex justify-content-between align-item-center"
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        >
+            <div 
+            >
+                
                 <input
-                    className={`rounded-checkbox me-2 ${edit ? "none" : ""}`}
+                    className={`align-middle rounded-checkbox me-2 ${edit ? "none" : ""}`}
                     type="checkbox"
                     value=""
                     onChange={handleMark}
                 />
                 <label
-                    className={`form-check-label ${isDone ? "text-decoration-line-through" : ""} ${edit ? "none" : ""}`}
+                    className={`align-middle form-check-label ${isDone ? "text-decoration-line-through" : ""} ${edit ? "none" : ""}`}
                     style={{ fontSize: "18px" }}
                     onDoubleClick={
                         () => {
@@ -77,10 +85,11 @@ const TodoItem = ({ textProps, id, isDone }) => {
             </div>
 
             <button
-                className="btn btn-danger"
+                className={`align-middle btn text-danger ${show ? "show" : "hide"}`}
                 onClick={() => dispatch(removeTodo(id))}
-            >Remove</button>
-        </li>)
+            ><DeleteIcon width="20" height="20" /></button>
+        </li>
+    )
 }
 
 export default TodoItem

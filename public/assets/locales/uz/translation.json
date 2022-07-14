@@ -1,5 +1,11 @@
 {
-    "app_title": "Sarlavha",
-    "language": "til",
-    "welcome_message": "Xush kelibsiz"
-  }
+  "app_title": "Qaydlar",
+  "language": "til",
+  "welcome_message": "Tahrirlash uchun ikki marta bosing",
+  "add_btn_name": "Qo'shish",
+  "placeholder":"m.n. Kitob o'qish",
+  "todos_not_yet": "Birorta ham qayd yo`q",
+  "status_todo_all":"Hammasi",
+  "status_todo_completed":"Tugatilgan",
+  "status_todo_active":"Tugatilmagan"
+}

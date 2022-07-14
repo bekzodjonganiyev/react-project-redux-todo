@@ -2,9 +2,12 @@ import React from 'react'
 import TodoItem from './TodoItem'
 
 import { useSelector } from "react-redux"
+import { useTranslation } from 'react-i18next'
 
 
 const TodoItems = () => {
+    const {t} = useTranslation()
+
     const todos = useSelector(state => {
         if (state.todos) {
             return state.todos
@@ -22,7 +25,7 @@ const TodoItems = () => {
                     ? todos.map((item) =>
                         <TodoItem key={item.id} textProps={item.text} id={item.id} isDone={item.isDone} />
                     )
-                    : <h3 className='text-center my-3 text-secondary'>Todos not created yet</h3>
+                    : <h3 className='text-center my-3 text-secondary'>{t("todos_not_yet")}</h3>
             }
         </ul>
     )

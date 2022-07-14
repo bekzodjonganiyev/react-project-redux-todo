@@ -3,11 +3,14 @@ import { useDispatch } from "react-redux"
 import { addTodo } from "../actions/todos"
 
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
 const TodosForm = () => {
     const inputRef = useRef(null)
     const formRef = useRef(null)
     const dispatch = useDispatch()
+
+    const {t} = useTranslation()
 
 
     const handleSubmit = (e) => {
@@ -36,11 +39,11 @@ const TodosForm = () => {
                         type="text"
                         id="exampleFormControlInput"
                         className="form-control"
-                        placeholder="e.g. Buy eggs"
+                        placeholder={t("placeholder")}
                         ref={inputRef}
                     />
                 </div>
-                <button className="btn btn-success">Add</button>
+                <button className="btn btn-success">{t("add_btn_name")}</button>
             </form>
         </div>
 

@@ -1,5 +1,12 @@
 {
-  "app_title": "Title",
+  "app_title": "Todos",
   "language": "Language",
-  "welcome_message": "Welcome"
+  "welcome_message": "Double Click for edit",
+  "add_btn_name":"Add",
+  "placeholder": "e.g. Buy eggs",
+  "todos_not_yet": "Todos not created yet",
+  "status_todo_all":"All",
+  "status_todo_completed":"Completed",
+  "status_todo_active":"Active"
+
 }

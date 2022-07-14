@@ -45,7 +45,7 @@ function App() {
           </div>
         </div>
       </div>
-      <h2 className="text-center my-5 ">{t("welcome_message")}</h2>
+      <p className="text-center text-muted my-5 ">{t("welcome_message")}</p>
     </div>
   );
 }

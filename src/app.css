@@ -1,9 +1,13 @@
-.none{
+.none, .hide{
     display: none;
 }
 
-.block{
+.block, .show{
     display: block;
+}
+
+.height{
+  height: 50px;
 }
 
 .rounded-checkbox {

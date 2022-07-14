@@ -2,8 +2,10 @@ import React from 'react'
 import "flag-icons/css/flag-icons.min.css"
 import { GlobeIcon } from '../assets/icons/Icons'
 import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 const TodosHeader = ({ length }) => {
+    const {t} = useTranslation()
 
     const language = [
         {
@@ -25,17 +27,17 @@ const TodosHeader = ({ length }) => {
 
     return (
         <div className="card-header d-flex justify-content-between">
-            <h1>Todos: {length}</h1>
-            <div class="dropdown">
+            <h1>{t("app_title")}: {length}</h1>
+            <div className="dropdown">
                 <button
-                    class="btn "
+                    className="btn "
                     type="button"
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
                     aria-expanded="false">
                         <GlobeIcon width="20" height="20"/> 
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     {language.map(item => (
                         <li key={item.conuntry_code}>
                             <button 

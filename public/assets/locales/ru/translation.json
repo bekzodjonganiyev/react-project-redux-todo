@@ -1,5 +1,11 @@
 {
-    "app_title": "Заголовок",
-    "language": "язык",
-    "welcome_message": "Добро пожаловать"
-  }
+  "app_title": "Заметки",
+  "language": "язык",
+  "welcome_message": "Двойной щелчок для редактирования",
+  "add_btn_name": "Дабавить",
+  "placeholder":"н.р. Купить яйца",
+  "todos_not_yet": "Заметки еще не создано",
+  "status_todo_all":"Все",
+  "status_todo_completed":"Выполнено",
+  "status_todo_active":"Не сделано"
+}
