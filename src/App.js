@@ -19,7 +19,7 @@ i18n
     supportedLngs: ["eng", "ru", "uz"],
     fallbackLng: "ru",
     detection: {
-      order: ['htmlTag', 'cookie', 'localStorage', 'sessionStorage', 'subdomain', 'path'],
+      order: ['path', 'htmlTag', 'cookie', 'localStorage', 'sessionStorage', 'subdomain'],
       caches: ['cookie']
     },
     react: { useSuspense: false },
