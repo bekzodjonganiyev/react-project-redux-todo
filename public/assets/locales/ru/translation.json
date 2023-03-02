@@ -7,5 +7,6 @@
   "todos_not_yet": "Заметки еще не создано",
   "status_todo_all":"Все",
   "status_todo_completed":"Выполнено",
-  "status_todo_active":"Не сделано"
+  "status_todo_active":"Не сделано",
+  "dynamic_content": "{{dynamic}}"
 }

@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react'
 import { useDispatch } from "react-redux"
+import { ToastContainer, toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next'
+
 import { removeTodo, completedTodo, editTodo } from '../actions/todos'
 import EditBtn from "../assets/images/edit.png"
 import { DeleteIcon } from '../assets/icons/Icons'
-import { ToastContainer, toast } from 'react-toastify';
 
 
 const TodoItem = ({ textProps, id, isDone }) => {
     const dispatch = useDispatch()
+    const {t} = useTranslation()
 
     const [edit, setEdit] = useState(false)
     const [text, setText] = useState(textProps)

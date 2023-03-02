@@ -23,7 +23,7 @@ const TodoItems = () => {
             {
                 todos.length > 0
                     ? todos.map((item) =>
-                        <TodoItem key={item.id} textProps={item.text} id={item.id} isDone={item.isDone} />
+                        <TodoItem key={item.id} textProps={t("dynamic_content", {dynamic: item.text})} id={item.id} isDone={item.isDone} />
                     )
                     : <h3 className='text-center my-3 text-secondary'>{t("todos_not_yet")}</h3>
             }

@@ -6,6 +6,7 @@
   "placeholder":"m.n. Kitob o'qish",
   "todos_not_yet": "Birorta ham qayd yo`q",
   "status_todo_all":"Hammasi",
-  "status_todo_completed":"Tugatilgan",
-  "status_todo_active":"Tugatilmagan"
+  "status_todo_completed":"Tugatilgan {{ok}}",
+  "status_todo_active":"Tugatilmagan",
+  "dynamic_content": "{{dynamic}}"
 }
